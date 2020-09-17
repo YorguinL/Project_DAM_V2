@@ -33,9 +33,9 @@ public class LevelController : MonoBehaviour
 
             case(1):
                 spawnRate = 7f;
-                spawnRateItems = 50f;
+                spawnRateItems = 40f;
                 PortalController.time = 30f;
-                if(count < 15){
+                if(count < 6){
                     CreateEnemies();
                     CreateItems();
                 }
@@ -45,7 +45,7 @@ public class LevelController : MonoBehaviour
                 spawnRate = 3f;
                 spawnRateItems = 45f;
                 PortalController.time = 20f;
-                if(count < 20){
+                if(count < 12){
                     CreateEnemies();
                 }
             break;

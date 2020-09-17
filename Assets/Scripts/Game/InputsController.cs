@@ -24,7 +24,7 @@ public class InputsController : MonoBehaviour
 
     // Register player
     public  void SavePlayer(){
-        if(nickName != " "){
+        if(nickName != ""){
             DataBaseController ddbb = new DataBaseController();
             ddbb.Start();
             ddbb.CheckPlayer(nickName);
@@ -34,11 +34,10 @@ public class InputsController : MonoBehaviour
 
     // Search player game
     public void SelectGame(){
-        if(nickName != " "){
+        if(nickName != ""){
             DataBaseController ddbb = new DataBaseController();
             ddbb.Start();
             ddbb.CheckSavedGame(nickName);
-            SceneManager.LoadScene(5);
         }
     }
 }

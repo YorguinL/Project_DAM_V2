@@ -191,6 +191,7 @@ public class GameController : MonoBehaviour
             s--;
         } else {
             if(m == 0 && s == 0){
+                savedGame = 0;
                 GameOver();
                 
             } else {
@@ -218,13 +219,12 @@ public class GameController : MonoBehaviour
 
 
     public void SaveAndExit(){
+        calScore();
         savedGame = 1;
         Time.timeScale = 1f;
         Invoke("UpdateTimer", 1f);
 
-        DataBaseController ddbb = new DataBaseController();
-        ddbb.Start();
-        ddbb.UpdateRecord(InputsController.NickName, score);
+        UpdateDataBase(score);
 
         SceneManager.LoadScene(0);
     }
@@ -241,9 +241,7 @@ public class GameController : MonoBehaviour
         Time.timeScale = 0f;
         Invoke("UpdateTimer", 0f);
         
-        DataBaseController ddbb = new DataBaseController();
-        ddbb.Start();
-        ddbb.UpdateRecord(InputsController.NickName, score);
+        UpdateDataBase(score);
 
         gameOver.SetActive(true);
     }
@@ -251,18 +249,24 @@ public class GameController : MonoBehaviour
     public void isDead(){
         if (health <= 0)
         {
+            savedGame = 0;
             GameOver();
         }
     }
 
     public void SaveAndRanking(){
+        calScore();
         savedGame = 1;
         Time.timeScale = 1f;
 
-        DataBaseController ddbb = new DataBaseController();
-        ddbb.Start();
-        ddbb.UpdateRecord(InputsController.NickName, score);
+        UpdateDataBase(score);
 
         SceneManager.LoadScene(1);
+    }
+
+    void UpdateDataBase(int scr){
+        DataBaseController bbdd = new DataBaseController();
+        bbdd.Start();
+        bbdd.UpdateRecord(InputsController.NickName, scr);
     }
 }

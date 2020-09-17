@@ -5,6 +5,7 @@ using UnityEngine;
 using Mono.Data.Sqlite;
 using System.Data;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DataBaseController : MonoBehaviour
 {
@@ -23,10 +24,10 @@ public class DataBaseController : MonoBehaviour
     public void Start()
     {
         //Path to database.
-        string filepath = Application.dataPath + "/BBDD/" + dataBaseName; 
         
         //Open connection to the database.
-        conn = "URI=file:"  + filepath;
+        conn = "URI=file:"  + 
+                System.IO.Path.Combine(Application.streamingAssetsPath, "Database/" + dataBaseName);
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); 
         print("Connectat a la base de dades");
@@ -90,8 +91,8 @@ public class DataBaseController : MonoBehaviour
         
     }
 
-    // Select score
-    private void SelectScore(int idPl){
+    // Select best score
+    private void SelectBestScore(int idPl){
 
         using(dbconn = new SqliteConnection(conn)){
 
@@ -118,7 +119,7 @@ public class DataBaseController : MonoBehaviour
     }
 
     // Load game
-    private void SelectGame(int health, int healthItems, int fireRate, int playerSpeed, int killedEnemies, int level, int score, int saved){
+    private void SelectGame(){
 
         using(dbconn = new SqliteConnection(conn)){
 
@@ -132,14 +133,14 @@ public class DataBaseController : MonoBehaviour
             while(reader.Read()){
                 idGame = reader.GetInt32(0);
                 idPlayer = reader.GetInt32(1);
-                health = reader.GetInt32(2);
-                healthItems = reader.GetInt32(3);
-                fireRate = reader.GetInt32(4);
-                playerSpeed = reader.GetInt32(5);
-                killedEnemies = reader.GetInt32(6);
-                level = reader.GetInt32(7);
-                score = reader.GetInt32(8);
-                gameSaved = reader.GetInt32(9);
+                GameController.Health = reader.GetInt32(2);
+                PlayerController.countHealth = reader.GetInt32(3);
+                PlayerController.countFireRate = reader.GetInt32(4);
+                PlayerController.countPlayerSpeed = reader.GetInt32(5);
+                GameController.countKilledEnemies = reader.GetInt32(6);
+                GameController.level = reader.GetInt32(7);
+                GameController.score = reader.GetInt32(8);
+                GameController.savedGame = reader.GetInt32(9);
             }
 
         reader.Close();
@@ -320,16 +321,18 @@ public class DataBaseController : MonoBehaviour
     public void CheckSavedGame(string nickName){
         
         SelectIdPlayer(nickName);
-
+        print(idPlayer);
         if(idPlayer != 0){
             // El usuari ja existeix
             SelectIdAndSavedGame(idPlayer);
 
             if(gameSaved == 1){
+                print("Partida guardada: " + gameSaved);
                 // Cargar partida
                 LoadSavedGame(nickName);
 
             }else {
+                print("Partida no guardada: " + gameSaved);
                 // Partida no guardada
                 // Missatge d'error
             }
@@ -342,37 +345,32 @@ public class DataBaseController : MonoBehaviour
         SelectIdPlayer(nickName);
         SelectIdAndSavedGame(idPlayer);
 
-        SelectGame(GameController.Health,
-                   PlayerController.countHealth,
-                   PlayerController.countFireRate,
-                   PlayerController.countPlayerSpeed,
-                   GameController.countKilledEnemies,
-                   GameController.level,
-                   GameController.score,
-                   GameController.savedGame
-                   );
+        SelectGame();
+        SceneManager.LoadScene(5);
     }
 
     // Update game
     public void UpdateRecord(string nickName, int scr){
 
         SelectIdPlayer(nickName);
-        SelectScore(idPlayer);
         SelectIdAndSavedGame(idPlayer);
 
-        if(GameController.Health <= 0){
-            UpdateGameRecord(idGame, 
-                             GameController.Health,
-                             PlayerController.countHealth,
-                             PlayerController.countFireRate,
-                             PlayerController.countPlayerSpeed,
-                             GameController.countKilledEnemies,
-                             GameController.level,
-                             scr,
-                             GameController.savedGame);
+        UpdateGameRecord(idGame, 
+                            GameController.Health,
+                            PlayerController.countHealth,
+                            PlayerController.countFireRate,
+                            PlayerController.countPlayerSpeed,
+                            GameController.countKilledEnemies,
+                            GameController.level,
+                            scr,
+                            GameController.savedGame);
+
+        SelectBestScore(idPlayer);
+        if(score > scr) {
+            UpdatePlayer(idPlayer, score);
+        }else {
+            UpdatePlayer(idPlayer, scr);
         }
-        SelectScore(idPlayer);
-        UpdatePlayer(idPlayer, score);
     }
 
     public string [] Top5(){

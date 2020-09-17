@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 911, y: 342}
-  m_MaxSize: {x: 22006, y: 10021}
+  m_MinSize: {x: 905, y: 321}
+  m_MaxSize: {x: 22001, y: 10000}
   vertical: 1
-  controlID: 5940
+  controlID: 949
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1366
     height: 635
-  m_MinSize: {x: 911, y: 342}
-  m_MaxSize: {x: 22006, y: 10021}
+  m_MinSize: {x: 905, y: 321}
+  m_MaxSize: {x: 22001, y: 10000}
   vertical: 0
-  controlID: 5941
+  controlID: 950
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 656
     height: 635
-  m_MinSize: {x: 201, y: 342}
-  m_MaxSize: {x: 4001, y: 8042}
+  m_MinSize: {x: 200, y: 321}
+  m_MaxSize: {x: 4001, y: 8021}
   vertical: 1
-  controlID: 5920
+  controlID: 929
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 37498
+  m_LastSelectedObjectID: 24068
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -563,8 +563,8 @@ MonoBehaviour:
     y: 311
     width: 656
     height: 324
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -589,8 +589,8 @@ MonoBehaviour:
     y: 0
     width: 232
     height: 635
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -647,9 +647,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 50430000
-    m_LastClickedID: 17232
-    m_ExpandedIDs: 000000003243000034430000
+    m_SelectedIDs: d23f0000
+    m_LastClickedID: 16338
+    m_ExpandedIDs: 00000000be3f0000d03f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -677,7 +677,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003243000034430000
+    m_ExpandedIDs: 00000000be3f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -702,9 +702,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 7a920000
-    m_LastClickedInstanceID: 37498
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: ea3f0000
+    m_LastClickedInstanceID: 16362
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 044c0000d2deffffc84c0000903e0000da520000aa5900008a3e0000a83f00004e6900009e7a00002a41000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -752,8 +752,8 @@ MonoBehaviour:
     y: 0
     width: 202
     height: 635
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -789,7 +789,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2acfffff50cfffff48e4ffff1cf0ffff52f3ffff58fbffffac670000bc670000cc670000dc670000f4670000046800001468000048680000706800009a680000b8930000
+      m_ExpandedIDs: 34f1ffffeaf7ffff58fbffff7a5e0000d45e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -832,8 +832,8 @@ MonoBehaviour:
     y: 0
     width: 276
     height: 635
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -870,8 +870,8 @@ MonoBehaviour:
     m_CachedPref: -160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 37498
-  m_LastVerticalScrollValue: 181
+  m_LastInspectedObjectInstanceID: 16362
+  m_LastVerticalScrollValue: 0
   m_AssetGUID: 
   m_InstanceID: 0
   m_LockTracker:
